@@ -14,10 +14,14 @@
 .logout{
     margin-top: 1.2em;
 }
-.cam:hover , .logo:hover ,.tagname:hover , .logout:hover{
+.cam:hover,.tagname:hover , .logout:hover{
     cursor: pointer;
     color: blue;
 }
 .logout:hover{
     color: red;
+}
+.logo:hover{
+    cursor:pointer;
+    color:pink;
 }
