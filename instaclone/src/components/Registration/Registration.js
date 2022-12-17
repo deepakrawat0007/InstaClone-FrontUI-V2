@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import "./registration.css"
+import loginImg from "../../image/loginImg.png"
 const API = process.env.REACT_APP_API || "http://localhost:3001"
 
 const Registration = () => {
@@ -36,14 +38,25 @@ const Registration = () => {
     }
     return (
         <>
+        <div className='container'>
+            <img src={loginImg} alt="loginImage"/>
+            <div className='form-container'>
+                <h2>InstaClone</h2>
+                <h4>Sign up to see photos and videos from your friends.</h4>
             <form onSubmit={(e) => { submit(e) }}>
+                {/* <label id='name'>NAME</label> */}
                 <input onChange={(e) => handle(e)} value={data.name} type="text" id="name" placeholder="User Name" required />
+                {/* <label id='email'>EMAIL</label> */}
                 <input onChange={(e) => handle(e)} value={data.email} type="email" id="email" placeholder="Email Address" required />
+                {/* <label id='password'>PASSWORD</label> */}
                 <input onChange={(e) => handle(e)} value={data.password} type="password" id="password" placeholder="Password" required />
                 <button type="submit">Sign Up</button>
             </form>
+          
             <div>
             <button onClick={handleRoute}>Already Signed Up?</button>
+            </div>
+            </div>
             </div>
         </>
     )

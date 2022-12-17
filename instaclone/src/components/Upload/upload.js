@@ -1,5 +1,8 @@
 import React ,{ useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
+import "./upload.css"
+import Header from '../Header/header'
+import postImg from "../../image/postImg.png"
 const API_KEY = process.env.REACT_APP_API || "http://localhost:3001" 
 
 function Upload() {
@@ -36,6 +39,9 @@ function Upload() {
 
     return (
         <div>
+        <Header/>
+        <div className='container'>
+        <img src={postImg} className="post-img2"/>
             <div className='form-holder'>
                 <form onSubmit={(e)=>submitbutton(e)}>
                     <div className='file-desc' >
@@ -52,6 +58,7 @@ function Upload() {
                         <button type='submit' className='postButton' >Post</button>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
     )

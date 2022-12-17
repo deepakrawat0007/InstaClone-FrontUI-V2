@@ -1,0 +1,23 @@
+.head{
+    display: flex;
+    border-bottom: 2px solid black;
+}
+.logo{
+    margin-left: 3em;
+    margin-top: 1em;
+}
+.cam {
+    margin-top: 1em;
+    margin-left: 55em;
+    margin-right: 1em;
+}
+.logout{
+    margin-top: 1.2em;
+}
+.cam:hover , .logo:hover ,.tagname:hover , .logout:hover{
+    cursor: pointer;
+    color: blue;
+}
+.logout:hover{
+    color: red;
+}
