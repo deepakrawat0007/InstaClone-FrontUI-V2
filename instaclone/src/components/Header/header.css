@@ -11,13 +11,23 @@
     margin-left: 55em;
     margin-right: 1em;
 }
-.logout{
+.logout , .user{
     margin-top: 1.2em;
+    margin-right: .8em;
 }
-.cam:hover , .logo:hover ,.tagname:hover , .logout:hover{
+.cam:hover , .logo:hover , .logout:hover{
     cursor: pointer;
     color: blue;
 }
 .logout:hover{
     color: red;
 }
+.logo:hover ,.tagname:hover {
+    cursor: pointer;
+    color: rgb(187, 15, 106);
+}
+.user:hover{
+    cursor: pointer;
+    color: lightsalmon;
+}
+

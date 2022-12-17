@@ -1,0 +1,5 @@
+.slide{
+    display: flexbox;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
