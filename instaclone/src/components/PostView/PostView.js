@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './postview.css';
 import { IconContext } from "react-icons/lib";
-import { FaRegHeart , FaTelegramPlane ,FaRegCommentDots, FaComment ,FaPowerOff, FaRegDotCircle, FaDotCircle, FaLevelDownAlt  } from "react-icons/fa";
+import { FaRegHeart , FaTelegramPlane , FaDotCircle} from "react-icons/fa";
 import Header from "../Header/header";
+import Spinner from "../../image/Spinner-0.5s-164px.svg"
 const API = process.env.REACT_APP_API || "http://localhost:3001"
 
 const PostView = () => {
     const navigate = useNavigate('/')
     const [data, setData] = useState([])
+    const [loading , setLoading] = useState(true)
     const [initcolor , setColor] = useState(false)
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -23,10 +25,13 @@ const PostView = () => {
                 'authorization': localStorage.getItem('token')
             }
         }).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setData(res.data)
+            setLoading(false)
         }).catch((e) => {
-            console.log(e.message)
+            // console.log(e.message)
+            setLoading(false)
+            alert(e)
         })
     },[])
 const handleColor = ()=>{
@@ -42,6 +47,7 @@ setColor(false)
     return (
         <>
         <Header/>
+        {loading?(<img className='spinner' src={Spinner} alt="loding" />):""}
             <div className="post-container">
                 {data.map((items,idx)=>(
                

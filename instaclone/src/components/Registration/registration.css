@@ -10,22 +10,30 @@ div > img{
 }
 .form-container{
     border: 2px solid black;
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.7);
+    border-radius: 25px;
     width: 27.5em;
     height: 27.5em;
 }
 #name ,#email,#password{
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 display: flex;
 margin-left: 6.8em;
 width: 20vw;
 height: 2em;
+border-radius: 10px;
+border: 2px solid gray;
+outline-style: none;
 margin-bottom: 1em;
 }
 div>h2{
     font-size: 2em;
     font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 div>h4{
     color:darkgray;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
 }
 div>button:hover ,form>button:hover{
     cursor: pointer;
@@ -36,6 +44,16 @@ div>button:hover ,form>button:hover{
 form>button , div>button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1em;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     margin-bottom: 1em;
     border:0;
+}
+.spinner{
+    position: absolute;
+    width: 10vw;
+    height:15vh;
+    top: 0;
+    z-index: 2;
+    background-color: transparent;
+    background: transparent;
 }

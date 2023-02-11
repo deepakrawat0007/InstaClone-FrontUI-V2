@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Header from "../Header/header";
 import axios from "axios";
 import { IconContext } from "react-icons/lib";
-import { FaRegHeart, FaTelegramPlane, FaRegCommentDots, FaComment, FaPowerOff, FaRegDotCircle, FaDotCircle, FaLevelDownAlt } from "react-icons/fa";
+import Spinner from "../../image/Spinner-0.5s-164px.svg"
+import { FaRegHeart, FaTelegramPlane, FaDotCircle } from "react-icons/fa";
 
 
 const API = process.env.REACT_APP_API || "http://localhost:3001"
@@ -11,6 +12,7 @@ const API = process.env.REACT_APP_API || "http://localhost:3001"
 const Account = () => {
     const [name, setName] = useState()
     const [initcolor, setColor] = useState(false)
+    const [loading , setLoading] = useState(true)
     const [data, setData] = useState([])
 
     const navigate = useNavigate('/')
@@ -26,10 +28,14 @@ const Account = () => {
                 'authorization': localStorage.getItem('token')
             }
         }).then((res) => {
-            console.log(res.data)
+            
+            // console.log(res.data)
             setData(res.data)
+            setLoading(false)
         }).catch((e) => {
-            console.log(e.message)
+            setLoading(false)
+            alert(e.message)
+            // console.log(e.message)
         })
 
     }, [])
@@ -43,7 +49,7 @@ const Account = () => {
     return (
         <>
             <Header />
-
+            {loading?(<img className='spinner' src={Spinner} alt="loding" />):""}
             <div className="post-container">
                 {data.map((items, idx) => (
                     <section className="slide">

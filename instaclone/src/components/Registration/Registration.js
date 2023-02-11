@@ -3,10 +3,12 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import "./registration.css"
 import loginImg from "../../image/loginImg.png"
+import Spinner from "../../image/Spinner-0.5s-164px.svg"
 const API = process.env.REACT_APP_API || "http://localhost:3001"
 
 const Registration = () => {
     const navigate = useNavigate('/')
+    const [loading , setLoading] = useState(false)
     const [data, setData] = useState({
         name: "",
         email: "",
@@ -22,22 +24,27 @@ const Registration = () => {
     }
     function submit(e) {
         e.preventDefault()
+        setLoading(true)
         Axios.post(API + "/register", {
             name: data.name,
             email: data.email,
             password: data.password
         })
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
+                setLoading(false)
                 alert('User-Created-SuccessFully')
                 navigate('/login')
+
             }).catch((e) => {
+                setLoading(false)
                 alert(e.message)
-                console.log(e.message)
+                // console.log(e.message)
             })
     }
     return (
         <>
+        {loading?(<img className='spinner' src={Spinner} alt="loding" />):""}
         <div className='container'>
             <img src={loginImg} alt="loginImage"/>
             <div className='form-container'>

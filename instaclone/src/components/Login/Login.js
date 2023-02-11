@@ -3,11 +3,13 @@ import Axios from "axios";
 import {useNavigate} from "react-router-dom"
 import './login.css'
 import loginImgg from '../../image/loginImgg.png'
+import Spinner from "../../image/Spinner-0.5s-164px.svg"
 const API = process.env.REACT_APP_API || "http://localhost:3001"
 
 
 const LoginPage = () => {
     const navigate = useNavigate('/')
+    const [loading , setLoading] = useState(false)
     const [bool ,setBool ] = useState(false)
     const [data, setData] = useState({
         email: "",
@@ -18,18 +20,21 @@ const LoginPage = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
         Axios.post(API + "/login", {
             email: data.email,
             password: data.password
         })
             .then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                 localStorage.setItem('token', res.data.Token)
+                setLoading(false)
                 navigate('/posts')
                 setBool(false)
             }).catch((e) => {
                 setBool(true)
-                console.log(e.message)
+                setLoading(false)
+                // console.log(e.message)
             })
 
     }
@@ -40,6 +45,7 @@ const LoginPage = () => {
     }
     return (
         <>
+        {loading?(<img className='spinner' src={Spinner} alt="loding" />):""}
         <div className="Container">
         <img src={loginImgg}/>
         <div className="form-container">

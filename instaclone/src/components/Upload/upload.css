@@ -1,5 +1,7 @@
 .form-holder{
     border: 2px solid black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +17,12 @@ form > div{
   width: 400px;
   margin: 7px;
 }
+.form-holder input{
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    border: 0;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
 .author-location{
     display: flex;
     justify-content: space-between;
@@ -22,6 +30,8 @@ form > div{
 }
 
 .author-location > input{
+    height: 5vh;
+    padding-left: 10px;
    width: 40%;
 }
 
