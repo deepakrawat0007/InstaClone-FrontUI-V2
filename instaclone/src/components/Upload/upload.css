@@ -1,6 +1,6 @@
-.form-holder{
+.form-holder {
     border: 2px solid black;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -9,52 +9,57 @@
     margin-top: 10px;
 
 }
-.post-img2{
+
+.post-img2 {
     width: 35vw;
-height: 85vh;
+    height: 85vh;
 }
-form > div{
-  width: 400px;
-  margin: 7px;
+
+form>div {
+    width: 400px;
+    margin: 7px;
 }
-.form-holder input{
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+
+.form-holder input {
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     border: 0;
     border: 1px solid gray;
     border-radius: 10px;
 }
-.author-location{
+
+.author-location {
     display: flex;
     justify-content: space-between;
     width: 95%;
 }
 
-.author-location > input{
+.author-location>input {
     height: 5vh;
     padding-left: 10px;
-   width: 40%;
+    width: 40%;
 }
 
-.file-desc{
+.file-desc {
     width: 95%;
     height: 50px;
 }
-.file-desc>input{
+
+.file-desc>input {
     height: 30px;
     width: 98%;
 }
 
-.postButton{
-   width: 55px;
-   background-color: rgb(28, 25, 21);
-   border: none;
-   color: white;
-   padding: 6px;
-   cursor: pointer;
-   border-radius: 3px;
+.postButton {
+    width: 55px;
+    background-color: rgb(28, 25, 21);
+    border: none;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
-.postButton:hover{
+.postButton:hover {
     width: 55px;
     background-color: rgb(51, 38, 19);
     border: none;
@@ -62,4 +67,4 @@ form > div{
     padding: 6px;
     cursor: pointer;
     border-radius: 3px;
- } 
+}

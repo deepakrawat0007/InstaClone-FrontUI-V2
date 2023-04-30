@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import ToastContext from "../context/ToastContext";
 import './login.css'
 import loginImgg from '../../image/loginImgg.png'
 import Spinner from "../../image/Spinner-0.5s-164px.svg"
-const API = process.env.REACT_APP_API || "http://localhost:3001"
+const API = "https://instclone-bck-api.onrender.com"
 
 
 const LoginPage = () => {
+    const { toast } = useContext(ToastContext)
     const navigate = useNavigate('/')
-    const [loading , setLoading] = useState(false)
-    const [bool ,setBool ] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         email: "",
         password: ""
     })
-    const handleRoute =()=>{
+    const handleRoute = () => {
         navigate('/')
     }
     const handleSubmit = (e) => {
@@ -27,12 +28,12 @@ const LoginPage = () => {
         })
             .then((res) => {
                 // console.log(res.data)
+                toast.success(res.data.message)
                 localStorage.setItem('token', res.data.Token)
                 setLoading(false)
                 navigate('/posts')
-                setBool(false)
             }).catch((e) => {
-                setBool(true)
+                toast.error(e.response.data.message)
                 setLoading(false)
                 // console.log(e.message)
             })
@@ -45,20 +46,19 @@ const LoginPage = () => {
     }
     return (
         <>
-        {loading?(<img className='spinner' src={Spinner} alt="loding" />):""}
-        <div className="Container">
-        <img src={loginImgg}/>
-        <div className="form-container">
-            <h2>InstaClone</h2>
-            <h4>Login to view new feeds</h4>
-            {bool?<div className="error">Invalid-Credentials</div>:''}
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <input type="email" placeholder="Email" id="email" value={data.email} onChange={(e) => { handleChange(e) }} />
-                <input type="password" placeholder="Password" id="password" value={data.password} onChange={(e) => { handleChange(e) }} />
-                <button type="submit">Login</button>
-            </form>
-            <button onClick={handleRoute}>Register as a new user</button>
-            </div>
+            {loading ? (<img className='spinner' src={Spinner} alt="loding" />) : ""}
+            <div className="Container">
+                <img src={loginImgg} className='bg-img' />
+                <div className="form-container">
+                    <h2>InstaClone</h2>
+                    <h4>Login to view new feeds</h4>
+                    <form onSubmit={(e) => handleSubmit(e)}>
+                        <input type="email" placeholder="Email" id="email" value={data.email} onChange={(e) => { handleChange(e) }} />
+                        <input type="password" placeholder="Password" id="password" value={data.password} onChange={(e) => { handleChange(e) }} />
+                        <button type="submit">Login</button>
+                    </form>
+                    <button onClick={handleRoute}>Register as a new user</button>
+                </div>
             </div>
 
         </>

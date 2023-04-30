@@ -1,0 +1,57 @@
+.prompt {
+    position: fixed;
+    z-index: 2;
+    left: 25%;
+    top: 25%;
+}
+
+.innerBox{
+    color: ghostwhite;
+    width: 40vw;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(126, 64, 246, 1);
+    padding: 5%;
+    text-align: center;
+}
+.innerBox form p{
+    font-size: 24px;
+    color: white;
+}
+
+.innerBox form input{
+    padding-left: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: block;
+    margin-left: 8%;
+    border-radius: 10px;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+}
+.innerBox form button{
+    width: 10vw;
+    height: 5vh;
+    background-color: rgba(126, 64, 246, 1);
+    background: linear-gradient(
+        to right,
+        rgba(126, 64, 246, 1),
+        rgba(80, 139, 252, 1)
+      );
+    color: white;
+    border-radius: 20px;
+    border: 0;
+    font-size: 20px;
+}
+
+.innerBox form button:hover{
+    cursor: pointer;
+    background-color: rgba(126, 64, 246, 1);
+    background: linear-gradient(
+        to right,
+        rgba(126, 64, 246, 1),
+        rgba(80, 139, 252, 1)
+      );
+}
